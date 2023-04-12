@@ -1,0 +1,19 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:StableDiffusionUI"
+             xmlns:material="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:mat="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             x:Class="StableDiffusionUI.App">
+    <Application.Styles>
+        <material:MaterialTheme BaseTheme="Dark" PrimaryColor="LightBlue" SecondaryColor="Teal"  />
+        <materialIcons:MaterialIconStyles />
+        <!--<FluentTheme Mode="Light"/>-->
+        <Style Selector="mat|Card">
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+        <Style Selector="GridSplitter">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </Application.Styles>
+</Application>

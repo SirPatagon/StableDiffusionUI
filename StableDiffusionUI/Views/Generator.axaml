@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mat="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             xmlns:controls="using:StableDiffusionUI.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="800"
+             x:Class="StableDiffusionUI.Views.Generator">
+    <UserControl.Styles>
+        <Style Selector="#spProperties > TextBox">
+            <Setter Property="AcceptsReturn" Value="True"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="UseFloatingWatermark" Value="True"/>            
+        </Style>
+    </UserControl.Styles>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Current Model: "/>
+        <mat:Card Grid.Column="0" Margin="8,8,0,8">
+            <DockPanel>
+                <Button DockPanel.Dock="Top" Classes="outline" >
+                    <StackPanel Orientation="Horizontal">
+                        <icons:MaterialIcon Kind="ArrowBack" Width="24" Height="24" Margin="0,0,4,0"/>
+                        <TextBlock VerticalAlignment="Center" Text="Change Model"/>
+                    </StackPanel>
+                </Button>
+                <Button DockPanel.Dock="Bottom">
+                    <StackPanel Orientation="Horizontal">
+                        <icons:MaterialIcon Kind="Gear" Width="24" Height="24" Margin="0,0,4,0"/>
+                        <TextBlock VerticalAlignment="Center" Text="Generate"/>
+                    </StackPanel>
+                </Button>
+                <ScrollViewer Padding="0,8">
+                    <StackPanel Name="spProperties">
+                        <TextBox assists:TextFieldAssist.Label="Enter prompt..."/>
+                        <TextBox assists:TextFieldAssist.Label="Enter negative prompt..."/>
+                        <Separator/>
+                        <ComboBox assists:ComboBoxAssist.Label="Scheduler"></ComboBox>
+                        <Separator/>
+                        <controls:RangeSlider Title="Iterations" TickFrequency="1" Minimum="1" Maximum="24" Value="1"/>
+                        <controls:RangeSlider Title="Batch size per iteration" TickFrequency="1" Minimum="1" Maximum="4" Value="1"/>            
+                        <Separator/>
+
+                        <controls:RangeSlider Title="Steps" TickFrequency="1" Minimum="1" Maximum="300" Value="16"/>
+                        <controls:RangeSlider Title="Guidance scale" TickFrequency=".1" Minimum="1" Maximum="50" Value="7.5"/>
+                        <controls:RangeSlider Title="Width" TickFrequency="64" Minimum="256" Maximum="2048" Value="512"/>
+                        <controls:RangeSlider Title="Height" TickFrequency="64" Minimum="256" Maximum="2048" Value="512"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </mat:Card>
+        <GridSplitter Grid.Column="1"/>
+        <mat:Card Grid.Column="2" Margin="0,8,8,8">
+
+        </mat:Card>
+    </Grid>
+</UserControl>

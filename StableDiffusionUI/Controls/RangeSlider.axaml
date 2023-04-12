@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="StableDiffusionUI.Controls.RangeSlider">
+    <UserControl.Styles>
+        <Style Selector="Slider">
+            <Setter Property="Margin" Value="20,8,20,24"/>
+            <!--<Setter Property="TickPlacement" Value="BottomRight"/>-->
+        </Style>
+    </UserControl.Styles>
+    <StackPanel>
+        <DockPanel LastChildFill="False">
+            <TextBlock Text="{Binding Title}" VerticalAlignment="Bottom"></TextBlock>
+            <NumericUpDown Name="nu" DockPanel.Dock="Right" MinHeight="32" Width="100" Height="32"
+                           Value="{Binding Value}" Increment="{Binding TickFrequency}"
+                           Minimum="{Binding Minimum}" Maximum="{Binding Maximum}" />
+        </DockPanel>
+        <Slider Name="sl" Classes="Modern Discrete Ticks" IsSnapToTickEnabled="True"
+                TickFrequency="{Binding TickFrequency}"
+                Minimum="{Binding Minimum}" Maximum="{Binding Maximum}"
+                Value="{Binding Value}"/>
+    </StackPanel>
+</UserControl>

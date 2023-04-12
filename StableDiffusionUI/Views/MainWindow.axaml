@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:StableDiffusionUI.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rxui="http://reactiveui.net"
+        xmlns:mat="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+        xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="StableDiffusionUI.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="StableDiffusionUI">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <rxui:RoutedViewHost Grid.Row="0"
+                x:Name="RoutedViewHost"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                Router="{Binding Router, Mode=OneWay}" />
+        <mat:FloatingButton Grid.Row="0" Classes="" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                            Margin="16">
+            <icons:MaterialIcon Kind="Console" Height="24" Width="24"/>
+        </mat:FloatingButton>
+        <GridSplitter Grid.Row="1" Background="{DynamicResource MaterialDesignToolBarBackground}"/>
+        <ScrollViewer Grid.Row="2" Background="{DynamicResource MaterialDesignToolBarBackground}">
+            <TextBlock Padding="8,0,8,8"
+                   FontFamily="Fira Code,Inconsolata,Consolas,Monospace,Courier"
+                   Text="Test CMD &gt; iiii&#x0a;Test CMD > fooBar&#x0a;Test CMD > fooBar&#x0a;Test CMD > fooBar&#x0a;Test CMD > fooBar&#x0a;Test CMD > fooBar&#x0a;Test CMD > fooBar&#x0a;Test CMD > fooBar"/>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
